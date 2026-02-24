@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings (Dark Mode)</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13daec",
+                        "background-dark": "#000000","surface-dark": "#1c1c1e","text-main-dark": "#ffffff",
+                        "text-sub-dark": "#8e8e93",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }.no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }.no-scrollbar {
+        -ms-overflow-style: none;scrollbar-width: none;}
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark text-text-main-dark font-display antialiased overflow-x-hidden selection:bg-primary/30">
+<div class="relative flex h-full min-h-screen w-full flex-col max-w-md mx-auto shadow-xl bg-background-dark">
+<header class="sticky top-0 z-10 bg-background-dark/80 backdrop-blur-md pt-safe-top">
+<div class="flex items-center px-4 py-3 justify-between">
+<h2 class="text-3xl font-bold tracking-tight text-text-main-dark">Settings</h2>
+</div>
+</header>
+<main class="flex-1 flex flex-col px-4 pb-24">
+<div class="mt-4 mb-6">
+<div class="relative overflow-hidden rounded-xl bg-teal-500 text-black shadow-lg ring-1 ring-white/10">
+<div class="absolute top-0 right-0 -mr-8 -mt-8 h-32 w-32 rounded-full bg-white/20 blur-2xl"></div>
+<div class="absolute bottom-0 left-0 -ml-8 -mb-8 h-32 w-32 rounded-full bg-white/20 blur-2xl"></div>
+<div class="relative p-5">
+<div class="flex items-start justify-between">
+<div class="flex-1 pr-4">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-[20px] fill-1">diamond</span>
+<span class="text-xs font-bold uppercase tracking-wider opacity-80">Premium</span>
+</div>
+<h3 class="text-xl font-bold leading-tight mb-2">Unlock Full Access</h3>
+<p class="text-sm font-medium opacity-80 mb-4 leading-relaxed">Remove ads and support development. Enjoy a cleaner, faster experience.</p>
+<ul class="space-y-1 mb-5">
+<li class="flex items-center gap-2 text-sm font-bold opacity-90">
+<span class="material-symbols-outlined text-[18px]">check</span>
+                                        No Ads
+                                    </li>
+<li class="flex items-center gap-2 text-sm font-bold opacity-90">
+<span class="material-symbols-outlined text-[18px]">check</span>
+                                        Cloud Sync
+                                    </li>
+<li class="flex items-center gap-2 text-sm font-bold opacity-90">
+<span class="material-symbols-outlined text-[18px]">check</span>
+                                        Custom Icons
+                                    </li>
+</ul>
+</div>
+<div class="h-16 w-16 shrink-0 rounded-full bg-black/10 flex items-center justify-center backdrop-blur-sm mt-2">
+<span class="material-symbols-outlined text-[32px] text-black opacity-80">rocket_launch</span>
+</div>
+</div>
+<button class="w-full flex cursor-pointer items-center justify-center rounded-lg bg-black py-3 px-4 text-sm font-bold text-white shadow-sm hover:bg-black/80 active:scale-[0.98] transition-all">
+                            Remove Ads - $2.99
+                        </button>
+</div>
+</div>
+</div>
+<div class="mb-6">
+<h3 class="text-text-sub-dark text-xs font-bold uppercase tracking-wider px-4 pb-2">Preferences</h3>
+<div class="flex flex-col overflow-hidden rounded-xl bg-surface-dark">
+<div class="group relative flex items-center gap-4 p-4 active:bg-white/10 transition-colors cursor-pointer">
+<div class="flex shrink-0 items-center justify-center rounded-lg bg-blue-500/20 text-blue-400 h-8 w-8">
+<span class="material-symbols-outlined text-[20px]">flag</span>
+</div>
+<div class="flex flex-1 items-center justify-between overflow-hidden">
+<p class="text-[17px] font-normal text-text-main-dark">Daily Goal</p>
+<div class="flex items-center gap-1 text-text-sub-dark">
+<span class="text-[17px]">2,500 ml</span>
+<span class="material-symbols-outlined text-[20px] opacity-50">chevron_right</span>
+</div>
+</div>
+</div>
+<div class="h-px w-full bg-[#38383a] ml-16"></div>
+<div class="group relative flex items-center gap-4 p-4 active:bg-white/10 transition-colors cursor-pointer">
+<div class="flex shrink-0 items-center justify-center rounded-lg bg-orange-500/20 text-orange-400 h-8 w-8">
+<span class="material-symbols-outlined text-[20px]">straighten</span>
+</div>
+<div class="flex flex-1 items-center justify-between overflow-hidden">
+<p class="text-[17px] font-normal text-text-main-dark">Units</p>
+<div class="flex items-center gap-1 text-text-sub-dark">
+<span class="text-[17px]">Milliliters</span>
+<span class="material-symbols-outlined text-[20px] opacity-50">chevron_right</span>
+</div>
+</div>
+</div>
+<div class="h-px w-full bg-[#38383a] ml-16"></div>
+<div class="group relative flex items-center gap-4 p-4 active:bg-white/10 transition-colors">
+<div class="flex shrink-0 items-center justify-center rounded-lg bg-red-500/20 text-red-500 h-8 w-8">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</div>
+<div class="flex flex-1 items-center justify-between overflow-hidden">
+<div class="flex flex-col">
+<p class="text-[17px] font-normal text-text-main-dark">Apple Health</p>
+</div>
+<label class="relative inline-flex cursor-pointer items-center">
+<input checked="" class="peer sr-only" type="checkbox" value=""/>
+<div class="peer h-[31px] w-[51px] rounded-full bg-[#39393d] after:absolute after:left-[2px] after:top-[2px] after:h-[27px] after:w-[27px] after:rounded-full after:bg-white after:shadow-sm after:transition-all peer-checked:bg-[#30d158] peer-checked:after:translate-x-[20px] peer-focus:outline-none"></div>
+</label>
+</div>
+</div>
+</div>
+</div>
+<div class="mb-6">
+<h3 class="text-text-sub-dark text-xs font-bold uppercase tracking-wider px-4 pb-2">Support</h3>
+<div class="flex flex-col overflow-hidden rounded-xl bg-surface-dark">
+<div class="group relative flex items-center gap-4 p-4 active:bg-white/10 transition-colors cursor-pointer">
+<div class="flex shrink-0 items-center justify-center rounded-lg bg-yellow-500/20 text-yellow-400 h-8 w-8">
+<span class="material-symbols-outlined text-[20px]">star</span>
+</div>
+<div class="flex flex-1 items-center justify-between overflow-hidden">
+<p class="text-[17px] font-normal text-text-main-dark">Rate Us</p>
+<span class="material-symbols-outlined text-[20px] opacity-50 text-text-sub-dark">chevron_right</span>
+</div>
+</div>
+<div class="h-px w-full bg-[#38383a] ml-16"></div>
+<div class="group relative flex items-center gap-4 p-4 active:bg-white/10 transition-colors cursor-pointer">
+<div class="flex shrink-0 items-center justify-center rounded-lg bg-indigo-500/20 text-indigo-400 h-8 w-8">
+<span class="material-symbols-outlined text-[20px]">policy</span>
+</div>
+<div class="flex flex-1 items-center justify-between overflow-hidden">
+<p class="text-[17px] font-normal text-text-main-dark">Privacy Policy</p>
+<span class="material-symbols-outlined text-[20px] opacity-50 text-text-sub-dark">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex justify-center mt-2 mb-8">
+<p class="text-xs text-text-sub-dark opacity-60">Version 4.0.2 (Build 291)</p>
+</div>
+</main>
+<nav class="fixed bottom-0 left-0 right-0 z-50 border-t border-white/10 bg-[#1c1c1e]/90 backdrop-blur-xl pb-safe-bottom">
+<div class="mx-auto flex h-[83px] max-w-md items-start justify-around px-2 pt-2">
+<a class="group flex w-16 flex-col items-center gap-1 rounded-xl py-1 text-text-sub-dark hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-[26px] group-hover:text-primary transition-colors">today</span>
+<span class="text-[10px] font-medium group-hover:text-primary transition-colors">Today</span>
+</a>
+<a class="group flex w-16 flex-col items-center gap-1 rounded-xl py-1 text-text-sub-dark hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-[26px] group-hover:text-primary transition-colors">history</span>
+<span class="text-[10px] font-medium group-hover:text-primary transition-colors">History</span>
+</a>
+<a class="group flex w-16 flex-col items-center gap-1 rounded-xl py-1 text-text-sub-dark hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-[26px] group-hover:text-primary transition-colors">notifications</span>
+<span class="text-[10px] font-medium group-hover:text-primary transition-colors">Reminders</span>
+</a>
+<a class="flex w-16 flex-col items-center gap-1 rounded-xl py-1 text-primary" href="#">
+<span class="material-symbols-outlined text-[26px] fill-1">settings</span>
+<span class="text-[10px] font-bold">Settings</span>
+</a>
+</div>
+</nav>
+</div>
+
+</body></html>

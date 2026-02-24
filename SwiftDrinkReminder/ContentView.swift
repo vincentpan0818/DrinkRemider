@@ -1,5 +1,8 @@
 import SwiftUI
 import Charts
+#if canImport(UIKit)
+import UIKit
+#endif
 
 struct ContentView: View {
     @EnvironmentObject private var waterLog: WaterLogModel
@@ -34,7 +37,7 @@ private struct OnboardingFlow: View {
 
     var body: some View {
         ZStack {
-            LinearGradient(colors: [Color.white, Color.sipCloud], startPoint: .topLeading, endPoint: .bottomTrailing)
+            LinearGradient(colors: [Color.sipBackground, Color.sipCloud], startPoint: .topLeading, endPoint: .bottomTrailing)
                 .ignoresSafeArea()
 
             VStack(spacing: 0) {
@@ -196,7 +199,7 @@ private struct OnboardingFlow: View {
                     Image(systemName: "minus")
                         .font(.title3.bold())
                         .frame(width: 52, height: 52)
-                        .background(Color.white)
+                        .background(Color.sipCardBackground)
                         .clipShape(Circle())
                         .overlay(Circle().stroke(Color.sipStroke, lineWidth: 1))
                 }
@@ -229,7 +232,7 @@ private struct OnboardingFlow: View {
                 .font(.subheadline.bold())
                 .padding(.horizontal, 14)
                 .padding(.vertical, 10)
-                .background(goalML == amountML ? Color.sipTeal : Color.white)
+                .background(goalML == amountML ? Color.sipTeal : Color.sipCardBackground)
                 .foregroundStyle(goalML == amountML ? .white : .primary)
                 .clipShape(Capsule())
                 .overlay {
@@ -262,7 +265,7 @@ private struct OnboardingFlow: View {
             Toggle("Connect Apple Health", isOn: $connectHealthKit)
                 .toggleStyle(.switch)
                 .padding()
-                .background(.white)
+                .background(Color.sipCardBackground)
                 .clipShape(RoundedRectangle(cornerRadius: 18))
                 .overlay {
                     RoundedRectangle(cornerRadius: 18).stroke(Color.sipStroke, lineWidth: 1)
@@ -399,7 +402,7 @@ private struct TodayScreen: View {
         }
         .frame(maxWidth: .infinity)
         .padding(18)
-        .background(.white)
+        .background(Color.sipCardBackground)
         .clipShape(RoundedRectangle(cornerRadius: 26))
         .overlay {
             RoundedRectangle(cornerRadius: 26)
@@ -437,7 +440,7 @@ private struct TodayScreen: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(14)
-            .background(.white)
+            .background(Color.sipCardBackground)
             .clipShape(RoundedRectangle(cornerRadius: 18))
             .overlay {
                 RoundedRectangle(cornerRadius: 18).stroke(Color.sipStroke, lineWidth: 1)
@@ -463,7 +466,7 @@ private struct TodayScreen: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(14)
-            .background(.white)
+            .background(Color.sipCardBackground)
             .clipShape(RoundedRectangle(cornerRadius: 18))
             .overlay {
                 RoundedRectangle(cornerRadius: 18).stroke(Color.sipStroke, lineWidth: 1)
@@ -494,7 +497,7 @@ private struct TodayScreen: View {
                     .foregroundStyle(.secondary)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(16)
-                    .background(.white)
+                    .background(Color.sipCardBackground)
                     .clipShape(RoundedRectangle(cornerRadius: 18))
                     .overlay {
                         RoundedRectangle(cornerRadius: 18).stroke(Color.sipStroke, lineWidth: 1)
@@ -528,7 +531,7 @@ private struct TodayScreen: View {
                         }
                     }
                 }
-                .background(.white)
+                .background(Color.sipCardBackground)
                 .clipShape(RoundedRectangle(cornerRadius: 18))
                 .overlay {
                     RoundedRectangle(cornerRadius: 18).stroke(Color.sipStroke, lineWidth: 1)
@@ -577,7 +580,7 @@ private struct HistoryScreen: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(18)
-        .background(.white)
+        .background(Color.sipCardBackground)
         .clipShape(RoundedRectangle(cornerRadius: 22))
         .overlay {
             RoundedRectangle(cornerRadius: 22).stroke(Color.sipStroke, lineWidth: 1)
@@ -603,7 +606,7 @@ private struct HistoryScreen: View {
             }
         }
         .padding(18)
-        .background(.white)
+        .background(Color.sipCardBackground)
         .clipShape(RoundedRectangle(cornerRadius: 22))
         .overlay {
             RoundedRectangle(cornerRadius: 22).stroke(Color.sipStroke, lineWidth: 1)
@@ -637,7 +640,7 @@ private struct HistoryScreen: View {
                     }
                 }
             }
-            .background(.white)
+            .background(Color.sipCardBackground)
             .clipShape(RoundedRectangle(cornerRadius: 18))
             .overlay {
                 RoundedRectangle(cornerRadius: 18).stroke(Color.sipStroke, lineWidth: 1)
@@ -786,7 +789,7 @@ private struct RemindersScreen: View {
                 .tint(.green)
         }
         .padding(16)
-        .background(.white)
+        .background(Color.sipCardBackground)
         .clipShape(RoundedRectangle(cornerRadius: 12))
         .overlay {
             RoundedRectangle(cornerRadius: 12).stroke(Color.sipStroke, lineWidth: 1)
@@ -821,7 +824,7 @@ private struct RemindersScreen: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(12)
-            .background(.white)
+            .background(Color.sipCardBackground)
             .clipShape(RoundedRectangle(cornerRadius: 12))
             .overlay {
                 RoundedRectangle(cornerRadius: 12).stroke(Color.sipStroke, lineWidth: 1)
@@ -854,7 +857,7 @@ private struct RemindersScreen: View {
                     time: $bedTime
                 )
             }
-            .background(.white)
+            .background(Color.sipCardBackground)
             .clipShape(RoundedRectangle(cornerRadius: 12))
             .overlay {
                 RoundedRectangle(cornerRadius: 12).stroke(Color.sipStroke, lineWidth: 1)
@@ -944,7 +947,7 @@ private struct RemindersScreen: View {
                     }
                 }
                 .padding(12)
-                .background(.white)
+                .background(Color.sipCardBackground)
                 .clipShape(RoundedRectangle(cornerRadius: 12))
                 .overlay {
                     RoundedRectangle(cornerRadius: 12).stroke(Color.sipStroke, lineWidth: 1)
@@ -1030,7 +1033,7 @@ private struct SettingsScreen: View {
             .buttonStyle(SipPrimaryButtonStyle())
         }
         .padding(18)
-        .background(.white)
+        .background(Color.sipCardBackground)
         .clipShape(RoundedRectangle(cornerRadius: 22))
         .overlay {
             RoundedRectangle(cornerRadius: 22).stroke(Color.sipStroke, lineWidth: 1)
@@ -1053,7 +1056,7 @@ private struct SettingsScreen: View {
             .pickerStyle(.segmented)
         }
         .padding(18)
-        .background(.white)
+        .background(Color.sipCardBackground)
         .clipShape(RoundedRectangle(cornerRadius: 22))
         .overlay {
             RoundedRectangle(cornerRadius: 22).stroke(Color.sipStroke, lineWidth: 1)
@@ -1088,7 +1091,7 @@ private struct SettingsScreen: View {
             .opacity((isUpdatingHealthSync || waterLog.healthPermissionStatus == .unavailable) ? 0.55 : 1)
         }
         .padding(18)
-        .background(.white)
+        .background(Color.sipCardBackground)
         .clipShape(RoundedRectangle(cornerRadius: 22))
         .overlay {
             RoundedRectangle(cornerRadius: 22).stroke(Color.sipStroke, lineWidth: 1)
@@ -1101,16 +1104,9 @@ private struct SettingsScreen: View {
                 waterLog.resetToday()
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-
-            Divider()
-
-            Button("Run Onboarding Again") {
-                onboardingCompleted = false
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
         }
         .padding(18)
-        .background(.white)
+        .background(Color.sipCardBackground)
         .clipShape(RoundedRectangle(cornerRadius: 22))
         .overlay {
             RoundedRectangle(cornerRadius: 22).stroke(Color.sipStroke, lineWidth: 1)
@@ -1145,13 +1141,24 @@ private struct SipPrimaryButtonStyle: ButtonStyle {
 }
 
 private extension Color {
-    static let sipTeal = Color(red: 0.05, green: 0.72, blue: 0.65)
-    static let sipMint = Color(red: 0.18, green: 0.84, blue: 0.75)
-    static let sipCloud = Color(red: 0.93, green: 0.98, blue: 0.97)
-    static let sipBackground = Color(red: 0.96, green: 0.97, blue: 0.98)
-    static let sipStroke = Color(red: 0.88, green: 0.91, blue: 0.93)
+    static let sipTeal = adaptive(light: Color(red: 0.05, green: 0.72, blue: 0.65), dark: Color(red: 0.07, green: 0.85, blue: 0.93))
+    static let sipMint = adaptive(light: Color(red: 0.18, green: 0.84, blue: 0.75), dark: Color(red: 0.11, green: 0.70, blue: 0.82))
+    static let sipCloud = adaptive(light: Color(red: 0.93, green: 0.98, blue: 0.97), dark: Color(red: 0.10, green: 0.10, blue: 0.12))
+    static let sipBackground = adaptive(light: Color(red: 0.96, green: 0.97, blue: 0.98), dark: Color.black)
+    static let sipCardBackground = adaptive(light: Color.white, dark: Color(red: 0.11, green: 0.11, blue: 0.12))
+    static let sipStroke = adaptive(light: Color(red: 0.88, green: 0.91, blue: 0.93), dark: Color(red: 0.22, green: 0.22, blue: 0.23))
     static let sipAdOrange = Color(red: 0.96, green: 0.52, blue: 0.16)
-    static let sipReminderBlue = Color(red: 0.08, green: 0.50, blue: 0.93)
+    static let sipReminderBlue = adaptive(light: Color(red: 0.08, green: 0.50, blue: 0.93), dark: Color(red: 0.04, green: 0.52, blue: 1.00))
+
+    static func adaptive(light: Color, dark: Color) -> Color {
+#if canImport(UIKit)
+        return Color(UIColor { trait in
+            trait.userInterfaceStyle == .dark ? UIColor(dark) : UIColor(light)
+        })
+#else
+        return light
+#endif
+    }
 }
 
 //#Preview {

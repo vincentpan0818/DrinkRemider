@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Reminders Settings (Dark Mode)</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0A84FF","background-dark": "#000000",
+                        "surface-dark": "#1C1C1E",
+                        "surface-dark-active": "#2C2C2E",
+                        "text-primary-dark": "#FFFFFF",
+                        "text-secondary-dark": "#8E8E93",
+                        "separator-dark": "#38383A",
+                        "orange-dark": "#FF9F0A",
+                        "indigo-dark": "#5E5CE6",
+                        "toggle-bg-off": "#39393D",
+                        "picker-bg": "#2C2C2E"
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "10px", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+      background-color: #000000;}
+    .pb-safe {
+        padding-bottom: env(safe-area-inset-bottom);
+    }.ios-toggle {
+        appearance: none;
+        -webkit-appearance: none;
+        outline: none;
+        width: 51px;
+        height: 31px;
+        border-radius: 999px;
+        position: relative;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .ios-toggle::after {
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 27px;
+        height: 27px;
+        border-radius: 50%;
+        background-color: white;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.15), 0 1px 1px rgba(0,0,0,0.16);
+        transition: transform 0.3s;
+    }
+    .ios-toggle:checked {
+        background-color: #30D158;}
+    .ios-toggle:checked::after {
+        transform: translateX(20px);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark font-display text-text-primary-dark antialiased transition-colors duration-200">
+<div class="relative flex h-full min-h-screen w-full flex-col overflow-hidden pb-24">
+<header class="sticky top-0 z-20 bg-background-dark/80 backdrop-blur-md">
+<div class="flex items-center justify-between h-[44px] px-4 pt-2">
+<div class="flex items-center gap-1 text-primary cursor-pointer">
+<span class="material-symbols-outlined -ml-1 text-2xl">chevron_left</span>
+<span class="text-[17px]">Back</span>
+</div>
+<h1 class="text-[17px] font-semibold tracking-tight absolute left-1/2 -translate-x-1/2">Reminders</h1>
+<div class="w-[60px]"></div> 
+</div>
+</header>
+<main class="flex-1 px-4 py-6 w-full max-w-md mx-auto">
+<div class="mb-8">
+<div class="overflow-hidden rounded-lg bg-surface-dark">
+<div class="flex items-center justify-between px-4 py-3 min-h-[52px]">
+<div class="flex items-center gap-3">
+<div class="flex h-7 w-7 items-center justify-center rounded bg-primary text-white">
+<span class="material-symbols-outlined text-lg">notifications</span>
+</div>
+<p class="text-[17px] font-normal text-white">Enable Reminders</p>
+</div>
+<div class="shrink-0">
+<input checked="" class="ios-toggle bg-toggle-bg-off" type="checkbox"/>
+</div>
+</div>
+</div>
+<p class="mt-2 px-4 text-[13px] text-text-secondary-dark leading-snug">
+                    Allow Sip to send you notifications to keep you hydrated throughout the day.
+                </p>
+</div>
+<div class="mb-8">
+<h3 class="mb-2 px-4 text-[13px] font-normal uppercase tracking-wide text-text-secondary-dark">Active Hours</h3>
+<div class="overflow-hidden rounded-lg bg-surface-dark divide-y divide-separator-dark">
+<div class="group flex cursor-pointer items-center justify-between px-4 py-3 active:bg-surface-dark-active transition-colors">
+<div class="flex items-center gap-3">
+<p class="text-[17px] font-normal text-white">Start</p>
+</div>
+<div class="rounded-md bg-picker-bg px-3 py-1.5 text-[17px] font-normal text-white hover:bg-[#3A3A3C] transition-colors">
+                            08:00 AM
+                        </div>
+</div>
+<div class="group flex cursor-pointer items-center justify-between px-4 py-3 active:bg-surface-dark-active transition-colors">
+<div class="flex items-center gap-3">
+<p class="text-[17px] font-normal text-white">End</p>
+</div>
+<div class="rounded-md bg-picker-bg px-3 py-1.5 text-[17px] font-normal text-white hover:bg-[#3A3A3C] transition-colors">
+                            10:00 PM
+                        </div>
+</div>
+</div>
+</div>
+<div class="mb-8">
+<h3 class="mb-2 px-4 text-[13px] font-normal uppercase tracking-wide text-text-secondary-dark">Frequency</h3>
+<div class="overflow-hidden rounded-lg bg-surface-dark p-4">
+<div class="grid grid-cols-4 gap-3">
+<button class="flex flex-col items-center justify-center rounded-lg bg-primary text-white py-3 shadow-sm transition-all">
+<span class="text-[15px] font-semibold">1h</span>
+</button>
+<button class="flex flex-col items-center justify-center rounded-lg bg-surface-dark-active text-white border border-transparent active:opacity-70 py-3 transition-all">
+<span class="text-[15px] font-normal">2h</span>
+</button>
+<button class="flex flex-col items-center justify-center rounded-lg bg-surface-dark-active text-white border border-transparent active:opacity-70 py-3 transition-all">
+<span class="text-[15px] font-normal">3h</span>
+</button>
+<button class="flex flex-col items-center justify-center rounded-lg bg-surface-dark-active text-white border border-transparent active:opacity-70 py-3 transition-all">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+</button>
+</div>
+<p class="mt-3 text-center text-[13px] text-text-secondary-dark">
+                        Reminder every 1 hour.
+                    </p>
+</div>
+</div>
+<div class="mb-8">
+<div class="overflow-hidden rounded-lg bg-surface-dark divide-y divide-separator-dark">
+<div class="flex cursor-pointer items-center justify-between px-4 py-3 active:bg-surface-dark-active transition-colors">
+<p class="text-[17px] font-normal text-white">Sound</p>
+<div class="flex items-center gap-1 text-text-secondary-dark">
+<span class="text-[17px]">Droplet</span>
+<span class="material-symbols-outlined text-lg opacity-60">chevron_right</span>
+</div>
+</div>
+<div class="flex cursor-pointer items-center justify-between px-4 py-3 active:bg-surface-dark-active transition-colors">
+<p class="text-[17px] font-normal text-white">Smart Reminders</p>
+<div class="shrink-0">
+<input class="ios-toggle bg-toggle-bg-off" type="checkbox"/>
+</div>
+</div>
+</div>
+<p class="mt-2 px-4 text-[13px] text-text-secondary-dark leading-snug">
+                    Smart reminders will only notify you if you are behind on your goal.
+                </p>
+</div>
+</main>
+<nav class="fixed bottom-0 left-0 right-0 z-50 border-t border-[#38383A] bg-[#1C1C1E]/90 backdrop-blur-xl pb-safe pt-1">
+<div class="flex items-center justify-around px-2 pb-1">
+<button class="group flex flex-1 flex-col items-center justify-center gap-1 p-1 text-text-secondary-dark hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[26px]">calendar_today</span>
+<span class="text-[10px] font-medium">Today</span>
+</button>
+<button class="group flex flex-1 flex-col items-center justify-center gap-1 p-1 text-text-secondary-dark hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[26px]">insights</span>
+<span class="text-[10px] font-medium">History</span>
+</button>
+<button class="group flex flex-1 flex-col items-center justify-center gap-1 p-1 text-primary transition-colors">
+<span class="material-symbols-outlined text-[26px] font-variation-settings-filled">notifications</span>
+<span class="text-[10px] font-medium">Reminders</span>
+</button>
+<button class="group flex flex-1 flex-col items-center justify-center gap-1 p-1 text-text-secondary-dark hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[26px]">settings</span>
+<span class="text-[10px] font-medium">Settings</span>
+</button>
+</div>
+<div class="h-5 w-full"></div>
+</nav>
+</div>
+<style>
+        .material-symbols-outlined.font-variation-settings-filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+
+</body></html>

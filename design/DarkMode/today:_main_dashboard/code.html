@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Today (Dark Mode)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13daec", // Teal
+                        "background-dark": "#000000", // Black background
+                        "surface-dark": "#1C1C1E", // Dark grey for buttons/cards
+                        "track-dark": "#2C2C2E", // Dark grey track
+                        "tab-bar": "#121212"
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            min-height: max(884px, 100dvh);
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark font-display text-white overflow-hidden">
+<div class="relative flex h-full min-h-screen w-full flex-col group/design-root">
+<header class="flex items-center bg-background-dark p-4 justify-between z-10 sticky top-0">
+<div class="text-white flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined text-3xl">local_fire_department</span>
+</div>
+<div class="flex flex-col items-center">
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Today</h2>
+<span class="text-xs text-gray-400 font-medium">Oct 24</span>
+</div>
+<div class="flex w-12 items-center justify-end">
+<button class="flex items-center justify-center bg-transparent text-white p-0">
+<span class="material-symbols-outlined text-3xl">emoji_events</span>
+</button>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto pb-[180px] w-full max-w-md mx-auto">
+<div class="flex flex-col items-center justify-center pt-8 pb-12">
+<div class="relative size-72 flex items-center justify-center">
+<svg class="size-full -rotate-90 transform" viewBox="0 0 100 100">
+<circle class="text-track-dark" cx="50" cy="50" fill="transparent" r="42" stroke="currentColor" stroke-width="6"></circle>
+<circle class="text-primary transition-all duration-1000 ease-out" cx="50" cy="50" fill="transparent" r="42" stroke="currentColor" stroke-dasharray="264" stroke-dashoffset="153" stroke-linecap="round" stroke-width="6"></circle>
+</svg>
+<div class="absolute flex flex-col items-center justify-center text-center">
+<span class="text-white text-6xl font-extrabold tracking-tight">850</span>
+<span class="text-gray-400 text-base font-semibold mt-1">/ 2000 ml</span>
+<div class="mt-3 bg-primary/20 px-3 py-1 rounded-full">
+<span class="text-primary text-xs font-bold uppercase tracking-wider">42% to goal</span>
+</div>
+</div>
+</div>
+</div>
+<h3 class="text-white tracking-tight text-xl font-bold leading-tight px-6 pb-4">Quick Add</h3>
+<div class="grid grid-cols-2 gap-4 px-4 pb-4">
+<button class="flex flex-col items-center gap-3 p-5 rounded-3xl bg-surface-dark active:bg-track-dark shadow-sm border border-transparent active:scale-95 transition-all">
+<div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined icon-filled" style="font-size: 24px;">water_drop</span>
+</div>
+<div class="text-center">
+<p class="text-white text-lg font-bold leading-normal">+100 ml</p>
+<p class="text-gray-500 text-xs font-medium leading-normal">Small Cup</p>
+</div>
+</button>
+<button class="flex flex-col items-center gap-3 p-5 rounded-3xl bg-surface-dark active:bg-track-dark shadow-sm border border-transparent active:scale-95 transition-all">
+<div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined icon-filled" style="font-size: 28px;">water_drop</span>
+</div>
+<div class="text-center">
+<p class="text-white text-lg font-bold leading-normal">+250 ml</p>
+<p class="text-gray-500 text-xs font-medium leading-normal">Glass</p>
+</div>
+</button>
+<button class="flex flex-col items-center gap-3 p-5 rounded-3xl bg-surface-dark active:bg-track-dark shadow-sm border border-transparent active:scale-95 transition-all">
+<div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined icon-filled" style="font-size: 32px;">water_drop</span>
+</div>
+<div class="text-center">
+<p class="text-white text-lg font-bold leading-normal">+500 ml</p>
+<p class="text-gray-500 text-xs font-medium leading-normal">Bottle</p>
+</div>
+</button>
+<button class="flex flex-col items-center gap-3 p-5 rounded-3xl bg-surface-dark active:bg-track-dark shadow-sm border border-transparent active:scale-95 transition-all">
+<div class="size-12 rounded-full bg-gray-800 flex items-center justify-center text-gray-400">
+<span class="material-symbols-outlined" style="font-size: 24px;">edit</span>
+</div>
+<div class="text-center">
+<p class="text-white text-lg font-bold leading-normal">Custom</p>
+<p class="text-gray-500 text-xs font-medium leading-normal">Manual</p>
+</div>
+</button>
+</div>
+</main>
+<div class="absolute bottom-0 left-0 right-0 bg-background-dark z-20">
+<div class="flex flex-col items-center justify-center pb-2 bg-gradient-to-t from-background-dark to-transparent pt-4">
+<button class="text-gray-500 hover:text-primary text-xs font-semibold leading-normal pb-2 underline transition-colors">
+                Remove Ads
+            </button>
+<div class="w-full max-w-[340px] h-[50px] bg-track-dark rounded-lg flex items-center justify-center border border-dashed border-gray-700" data-alt="Banner advertisement placeholder area">
+<span class="text-gray-500 text-xs font-medium uppercase tracking-widest">Ad Banner</span>
+</div>
+</div>
+<nav class="flex items-center justify-around h-[80px] bg-tab-bar border-t border-gray-900 pb-5 pt-3">
+<button class="flex flex-col items-center gap-1 w-16 group">
+<div class="flex items-center justify-center rounded-full bg-primary/20 px-4 py-1 group-active:scale-95 transition-transform">
+<span class="material-symbols-outlined icon-filled text-primary text-2xl">water_drop</span>
+</div>
+<span class="text-xs font-bold text-primary">Today</span>
+</button>
+<button class="flex flex-col items-center gap-1 w-16 group">
+<div class="flex items-center justify-center rounded-full px-4 py-1 group-active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-gray-500 text-2xl group-hover:text-primary transition-colors">calendar_month</span>
+</div>
+<span class="text-xs font-medium text-gray-500 group-hover:text-primary transition-colors">History</span>
+</button>
+<button class="flex flex-col items-center gap-1 w-16 group">
+<div class="flex items-center justify-center rounded-full px-4 py-1 group-active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-gray-500 text-2xl group-hover:text-primary transition-colors">notifications</span>
+</div>
+<span class="text-xs font-medium text-gray-500 group-hover:text-primary transition-colors">Reminders</span>
+</button>
+<button class="flex flex-col items-center gap-1 w-16 group">
+<div class="flex items-center justify-center rounded-full px-4 py-1 group-active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-gray-500 text-2xl group-hover:text-primary transition-colors">settings</span>
+</div>
+<span class="text-xs font-medium text-gray-500 group-hover:text-primary transition-colors">Settings</span>
+</button>
+</nav>
+</div>
+</div>
+
+</body></html>

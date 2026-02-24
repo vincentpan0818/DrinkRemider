@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>History: Trends</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2DD4BF", 
+                        "primary-dark": "#14b8a6",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#000000",
+                        "surface-dark": "#121212",
+                        "surface-dark-light": "#1E1E1E",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark font-display text-white overflow-hidden">
+<div class="relative flex h-full min-h-screen w-full flex-col max-w-md mx-auto bg-background-dark shadow-xl overflow-hidden">
+<header class="flex items-center bg-background-dark px-4 py-3 justify-center sticky top-0 z-10 border-b border-[#27272a]">
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Hydration Trends</h2>
+</header>
+<div class="flex-1 overflow-y-auto pb-40 no-scrollbar">
+<div class="px-4 py-4 bg-background-dark">
+<div class="flex h-10 w-full items-center justify-center rounded-xl bg-surface-dark p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-[#27272a] text-gray-500 has-[:checked]:text-primary text-sm font-medium transition-all duration-200">
+<span class="truncate">Last 7 Days</span>
+<input checked="" class="invisible w-0" name="time-period" type="radio" value="7"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-[#27272a] text-gray-500 has-[:checked]:text-primary text-sm font-medium transition-all duration-200">
+<span class="truncate">Last 30 Days</span>
+<input class="invisible w-0" name="time-period" type="radio" value="30"/>
+</label>
+</div>
+</div>
+<div class="flex flex-wrap gap-3 px-4 pb-4">
+<div class="flex min-w-[111px] flex-1 basis-[fit-content] flex-col gap-1 rounded-xl bg-surface-dark p-4 items-center text-center border border-[#27272a]">
+<p class="text-white tracking-tight text-2xl font-bold leading-tight">2,100 ml</p>
+<div class="flex items-center gap-2">
+<p class="text-gray-400 text-xs font-medium uppercase tracking-wide">Daily Avg</p>
+</div>
+</div>
+<div class="flex min-w-[111px] flex-1 basis-[fit-content] flex-col gap-1 rounded-xl bg-surface-dark p-4 items-center text-center border border-[#27272a]">
+<p class="text-white tracking-tight text-2xl font-bold leading-tight">14.7 L</p>
+<div class="flex items-center gap-2">
+<p class="text-gray-400 text-xs font-medium uppercase tracking-wide">Total</p>
+</div>
+</div>
+</div>
+<div class="px-4 pb-6">
+<div class="flex flex-col gap-4 bg-background-dark">
+<div class="flex justify-between items-end">
+<div class="flex flex-col">
+<p class="text-white text-lg font-bold leading-normal">Daily Intake</p>
+<p class="text-gray-400 text-sm font-medium">Oct 18 - Oct 24</p>
+</div>
+<div class="flex items-center gap-1 bg-[#103622] px-2 py-1 rounded-md border border-[#14532d]">
+<span class="material-symbols-outlined text-[#4ade80] text-sm">trending_up</span>
+<p class="text-[#4ade80] text-xs font-bold leading-normal">+5% vs last week</p>
+</div>
+</div>
+<div class="relative h-[200px] w-full pt-4">
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none pb-6">
+<div class="w-full border-t border-dashed border-[#27272a] h-0"></div>
+<div class="w-full border-t border-dashed border-[#27272a] h-0"></div>
+<div class="w-full border-t border-dashed border-[#27272a] h-0"></div>
+<div class="w-full border-t border-dashed border-[#27272a] h-0"></div>
+</div>
+<div class="grid h-full grid-flow-col gap-3 items-end pb-6 px-1">
+<div class="group relative flex flex-col items-center gap-2 h-full justify-end">
+<div class="w-full bg-[#14b8a6]/30 rounded-t-lg group-hover:bg-[#14b8a6]/50 transition-all cursor-pointer relative" style="height: 45%;"></div>
+<span class="text-gray-500 text-xs font-semibold">M</span>
+</div>
+<div class="group relative flex flex-col items-center gap-2 h-full justify-end">
+<div class="w-full bg-[#14b8a6]/30 rounded-t-lg group-hover:bg-[#14b8a6]/50 transition-all cursor-pointer relative" style="height: 60%;"></div>
+<span class="text-gray-500 text-xs font-semibold">T</span>
+</div>
+<div class="group relative flex flex-col items-center gap-2 h-full justify-end">
+<div class="w-full bg-primary rounded-t-lg shadow-[0_0_15px_rgba(45,212,191,0.4)] relative" style="height: 100%;"></div>
+<span class="text-white text-xs font-bold">W</span>
+</div>
+<div class="group relative flex flex-col items-center gap-2 h-full justify-end">
+<div class="w-full bg-[#14b8a6]/30 rounded-t-lg group-hover:bg-[#14b8a6]/50 transition-all cursor-pointer relative" style="height: 35%;"></div>
+<span class="text-gray-500 text-xs font-semibold">T</span>
+</div>
+<div class="group relative flex flex-col items-center gap-2 h-full justify-end">
+<div class="w-full bg-[#14b8a6]/30 rounded-t-lg group-hover:bg-[#14b8a6]/50 transition-all cursor-pointer relative" style="height: 50%;"></div>
+<span class="text-gray-500 text-xs font-semibold">F</span>
+</div>
+<div class="group relative flex flex-col items-center gap-2 h-full justify-end">
+<div class="w-full bg-[#14b8a6]/30 rounded-t-lg group-hover:bg-[#14b8a6]/50 transition-all cursor-pointer relative" style="height: 80%;"></div>
+<span class="text-gray-500 text-xs font-semibold">S</span>
+</div>
+<div class="group relative flex flex-col items-center gap-2 h-full justify-end">
+<div class="w-full bg-primary/70 rounded-t-lg group-hover:bg-primary transition-all cursor-pointer relative" style="height: 70%;"></div>
+<span class="text-gray-500 text-xs font-semibold">S</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="h-2 bg-[#121212] w-full border-y border-[#27272a]"></div>
+<div class="flex flex-col px-4 pt-6">
+<h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] pb-3">Recent History</h3>
+<div class="flex flex-col">
+<div class="flex items-center justify-between py-4 border-b border-[#27272a]">
+<div class="flex items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/20 text-primary">
+<span class="material-symbols-outlined">water_drop</span>
+</div>
+<div class="flex flex-col">
+<p class="text-white text-base font-semibold">Today</p>
+<p class="text-gray-400 text-xs">Goal: 2500 ml</p>
+</div>
+</div>
+<p class="text-primary text-lg font-bold">2,100 ml</p>
+</div>
+<div class="flex items-center justify-between py-4 border-b border-[#27272a]">
+<div class="flex items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-[#27272a] text-gray-400">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<div class="flex flex-col">
+<p class="text-white text-base font-semibold">Yesterday</p>
+<p class="text-gray-500 text-xs">Oct 23</p>
+</div>
+</div>
+<p class="text-gray-300 text-lg font-semibold">2,450 ml</p>
+</div>
+<div class="flex items-center justify-between py-4 border-b border-[#27272a]">
+<div class="flex items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-[#27272a] text-gray-400">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<div class="flex flex-col">
+<p class="text-white text-base font-semibold">Tue, Oct 22</p>
+<p class="text-gray-500 text-xs">Perfect Streak 🔥</p>
+</div>
+</div>
+<p class="text-gray-300 text-lg font-semibold">2,500 ml</p>
+</div>
+<div class="flex items-center justify-between py-4 border-b border-[#27272a]">
+<div class="flex items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-[#27272a] text-gray-400">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<div class="flex flex-col">
+<p class="text-white text-base font-semibold">Mon, Oct 21</p>
+<p class="text-gray-500 text-xs">Low intake</p>
+</div>
+</div>
+<p class="text-gray-300 text-lg font-semibold">1,800 ml</p>
+</div>
+</div>
+</div>
+<div class="h-24 w-full"></div>
+</div>
+<div class="w-full bg-[#121212] flex items-center justify-center py-2 border-t border-[#27272a] absolute bottom-[72px] z-20">
+<div class="w-[320px] h-[50px] bg-[#27272a] flex items-center justify-center rounded text-xs text-gray-500 font-medium">
+            ADVERTISEMENT (320x50)
+        </div>
+</div>
+<div class="flex items-center justify-around bg-black px-4 py-3 border-t border-[#27272a] absolute bottom-0 w-full h-[72px] z-30">
+<div class="flex flex-col items-center gap-1 opacity-50 hover:opacity-100 cursor-pointer text-white">
+<span class="material-symbols-outlined text-2xl">water_drop</span>
+<span class="text-[10px] font-medium">Today</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary cursor-pointer">
+<span class="material-symbols-outlined text-2xl fill-1">bar_chart</span>
+<span class="text-[10px] font-bold">History</span>
+</div>
+<div class="flex flex-col items-center gap-1 opacity-50 hover:opacity-100 cursor-pointer text-white">
+<span class="material-symbols-outlined text-2xl">notifications</span>
+<span class="text-[10px] font-medium">Reminders</span>
+</div>
+<div class="flex flex-col items-center gap-1 opacity-50 hover:opacity-100 cursor-pointer text-white">
+<span class="material-symbols-outlined text-2xl">settings</span>
+<span class="text-[10px] font-medium">Settings</span>
+</div>
+</div>
+</div>
+
+</body></html>
