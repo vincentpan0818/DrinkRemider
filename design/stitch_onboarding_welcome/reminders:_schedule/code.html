@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Reminders: Schedule (Light Mode)</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f2f2f7", // iOS System Grouped Background
+                        "surface-light": "#ffffff",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">.list-separator > div:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 1rem;right: 0;
+            height: 0.5px;
+            background-color: rgba(60, 60, 67, 0.18);}
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        body {
+            min-height: 100dvh;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light text-[#1c1c1e] font-display min-h-screen flex flex-col overflow-x-hidden selection:bg-primary/30">
+<header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-[#3c3c4312]">
+<div class="flex items-center justify-between px-4 h-[56px]">
+<div class="w-12"></div>
+<h1 class="text-[17px] font-bold tracking-tight">Reminders</h1>
+<button class="w-12 text-primary font-semibold text-[17px] hover:opacity-70 transition-opacity text-right">Save</button>
+</div>
+</header>
+<main class="flex-1 w-full max-w-md mx-auto px-4 py-6 flex flex-col gap-8 pb-24">
+<section>
+<div class="bg-surface-light rounded-[10px] shadow-sm overflow-hidden">
+<div class="flex items-center justify-between px-4 h-12 w-full">
+<span class="text-[17px] font-medium">Enable Reminders</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-[51px] h-[31px] bg-[#e9e9ea] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-[20px] after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-[27px] after:w-[27px] after:transition-all peer-checked:bg-[#34c759] shadow-sm"></div>
+</label>
+</div>
+</div>
+</section>
+<section>
+<h3 class="px-4 pb-2 text-[13px] font-normal text-[#6e6e73] uppercase tracking-tight">Schedule</h3>
+<div class="bg-surface-light rounded-[10px] shadow-sm overflow-hidden flex flex-col list-separator">
+<div class="relative flex items-center justify-between px-4 h-12 active:bg-[#f2f2f7] transition-colors cursor-pointer group">
+<div class="flex items-center gap-3">
+<div class="p-1 rounded-md bg-orange-100 text-orange-500">
+<span class="material-symbols-outlined text-[20px]">wb_sunny</span>
+</div>
+<span class="text-[17px]">Wake Up</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-[#f2f2f7] px-2.5 py-1.5 rounded-lg text-[15px] font-medium text-primary">08:00 AM</span>
+</div>
+</div>
+<div class="relative flex items-center justify-between px-4 h-12 active:bg-[#f2f2f7] transition-colors cursor-pointer group">
+<div class="flex items-center gap-3">
+<div class="p-1 rounded-md bg-indigo-100 text-indigo-600">
+<span class="material-symbols-outlined text-[20px]">bedtime</span>
+</div>
+<span class="text-[17px]">Bedtime</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[#8e8e93] text-[17px]">10:00 PM</span>
+<span class="material-symbols-outlined text-[#c7c7cc] text-[20px]">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+<section>
+<h3 class="px-4 pb-2 text-[13px] font-normal text-[#6e6e73] uppercase tracking-tight">Frequency</h3>
+<div class="bg-[#e3e3e6] p-0.5 rounded-[10px] flex items-center h-8">
+<button class="flex-1 h-full text-[13px] font-medium text-gray-700">1h</button>
+<button class="flex-1 h-full text-[13px] font-medium text-gray-700">2h</button>
+<button class="flex-1 h-full text-[13px] font-medium text-gray-700">3h</button>
+<button class="flex-1 h-[28px] rounded-[7px] text-[13px] font-semibold bg-white shadow-sm text-black">Smart</button>
+</div>
+<div class="mt-4 bg-white rounded-xl p-4 flex gap-4 items-start shadow-sm border border-[#3c3c4312]">
+<div class="shrink-0 text-primary bg-primary/10 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined !text-[20px] font-variation-settings-fill-1" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="flex flex-col gap-1">
+<h4 class="text-[15px] font-bold text-gray-900">Smart Schedule Active</h4>
+<p class="text-[14px] text-[#6e6e73] leading-snug">
+                    Reminders adapt to your daily activity and local weather to keep you hydrated efficiently.
+                </p>
+</div>
+</div>
+</section>
+</main>
+<nav class="fixed bottom-0 w-full bg-white/80 backdrop-blur-xl border-t border-[#3c3c434d] pt-2 pb-8 px-6">
+<div class="flex justify-between items-center max-w-md mx-auto">
+<button class="flex flex-col items-center gap-1 w-16 group">
+<span class="material-symbols-outlined text-[#999] group-hover:text-primary transition-colors">water_drop</span>
+<span class="text-[10px] font-medium text-[#999] group-hover:text-primary transition-colors">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 w-16 group">
+<span class="material-symbols-outlined text-[#999] group-hover:text-primary transition-colors">calendar_month</span>
+<span class="text-[10px] font-medium text-[#999] group-hover:text-primary transition-colors">History</span>
+</button>
+<button class="flex flex-col items-center gap-1 w-16">
+<div class="relative">
+<span class="material-symbols-outlined text-primary font-bold" style="font-variation-settings: 'FILL' 1;">notifications</span>
+<span class="absolute -top-0.5 -right-0.5 h-2 w-2 rounded-full bg-red-500 border border-white"></span>
+</div>
+<span class="text-[10px] font-bold text-primary">Reminders</span>
+</button>
+<button class="flex flex-col items-center gap-1 w-16 group">
+<span class="material-symbols-outlined text-[#999] group-hover:text-primary transition-colors">settings</span>
+<span class="text-[10px] font-medium text-[#999] group-hover:text-primary transition-colors">Settings</span>
+</button>
+</div>
+</nav>
+
+</body></html>

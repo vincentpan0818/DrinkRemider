@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Health Sync (Light Mode)</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#008080", // Teal accent color
+            "background": "#FFFFFF",
+            "card-bg": "#F2F2F7", // iOS Light secondary background
+            "ios-gray": "#8E8E93"
+          },
+          fontFamily: {
+            "display": ["Manrope", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "2xl": "1.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style type="text/tailwindcss">
+    body {
+      min-height: 100dvh;
+      background-color: #FFFFFF;
+    }
+    .safe-area-bottom {
+      padding-bottom: env(safe-area-inset-bottom, 2rem);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display text-[#1C1C1E] antialiased">
+<div class="relative flex h-full min-h-screen w-full flex-col overflow-x-hidden justify-between">
+<div class="flex w-full flex-col items-center pt-12 pb-4">
+<p class="text-[13px] font-bold text-ios-gray mb-4 tracking-widest uppercase">Step 4 of 4</p>
+<div class="flex flex-row items-center justify-center gap-2">
+<div class="h-1.5 w-1.5 rounded-full bg-gray-200"></div>
+<div class="h-1.5 w-1.5 rounded-full bg-gray-200"></div>
+<div class="h-1.5 w-1.5 rounded-full bg-gray-200"></div>
+<div class="h-1.5 w-5 rounded-full bg-primary"></div>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center w-full flex-grow px-6">
+<div class="flex items-center justify-center gap-4 mb-10 w-full max-w-xs relative py-8">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-[1px] bg-gray-200 rounded-full"></div>
+<div class="relative z-10 flex flex-col items-center gap-3">
+<div class="flex h-20 w-20 items-center justify-center rounded-2xl bg-primary shadow-xl shadow-teal-600/20 ring-4 ring-white">
+<span class="material-symbols-outlined text-white text-[40px] font-light">water_drop</span>
+</div>
+<span class="text-[13px] font-semibold text-gray-500">Sip</span>
+</div>
+<div class="relative z-20 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white border border-gray-100 shadow-md">
+<span class="material-symbols-outlined text-primary text-[20px] font-bold">sync_alt</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-3">
+<div class="flex h-20 w-20 items-center justify-center rounded-2xl bg-white shadow-xl shadow-black/5 ring-4 ring-white border border-gray-50">
+<span class="material-symbols-outlined text-[#FF2D55] text-[40px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<span class="text-[13px] font-semibold text-gray-500">Health</span>
+</div>
+</div>
+<div class="flex flex-col gap-6 max-w-sm text-center">
+<div class="space-y-3">
+<h1 class="text-[#1C1C1E] tracking-tight text-[28px] font-extrabold leading-tight">
+            Sync your water intake automatically
+          </h1>
+<p class="text-ios-gray text-[16px] font-medium leading-relaxed px-4">
+            Keep your health data accurate by connecting Sip with Apple Health.
+          </p>
+</div>
+<div class="bg-card-bg rounded-2xl p-5 text-left flex items-start gap-4">
+<div class="mt-1">
+<span class="material-symbols-outlined text-primary text-[24px]">verified_user</span>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-[15px] font-bold text-[#1C1C1E]">Secure Syncing</p>
+<p class="text-[14px] text-gray-600 leading-snug">
+              We only read water data. Your privacy is protected and you can revoke access at any time in Settings.
+            </p>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full pb-10 pt-4 px-8 flex flex-col items-center gap-3 safe-area-bottom">
+<button class="flex w-full max-w-[400px] cursor-pointer items-center justify-center rounded-2xl h-[56px] bg-primary hover:opacity-90 active:scale-[0.98] transition-all text-white text-[17px] font-bold shadow-lg shadow-teal-800/10">
+        Connect Apple Health
+      </button>
+<button class="flex w-full max-w-[400px] cursor-pointer items-center justify-center rounded-2xl h-[50px] text-ios-gray hover:text-gray-900 transition-colors text-[16px] font-semibold">
+        Not Now
+      </button>
+</div>
+</div>
+
+</body></html>
