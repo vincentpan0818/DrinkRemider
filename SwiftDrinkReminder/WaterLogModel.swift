@@ -193,6 +193,12 @@ final class WaterLogModel: ObservableObject {
         rolloverIfNeeded(referenceDate: Date())
         recalculateTodayIntake()
         refreshHealthPermissionStatus()
+        refreshNotificationPermissionStatus()
+        if remindersEnabled, notificationPermissionStatus == .authorized {
+            Task { [weak self] in
+                await self?.scheduleReminderNotifications()
+            }
+        }
         persist()
     }
 
@@ -356,6 +362,10 @@ final class WaterLogModel: ObservableObject {
                     self.notificationPermissionStatus = .unknown
                 @unknown default:
                     self.notificationPermissionStatus = .unknown
+                }
+
+                if self.remindersEnabled, self.notificationPermissionStatus == .authorized {
+                    await self.scheduleReminderNotifications()
                 }
             }
         }

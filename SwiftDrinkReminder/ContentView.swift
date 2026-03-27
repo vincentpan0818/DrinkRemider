@@ -4,6 +4,11 @@ import Charts
 import UIKit
 #endif
 
+private enum LayoutMetrics {
+    static let adBannerHeight: CGFloat = 50
+    static let adBannerHorizontalPadding: CGFloat = 10
+}
+
 struct ContentView: View {
     @EnvironmentObject private var waterLog: WaterLogModel
     @AppStorage("onboarding.completed") private var onboardingCompleted = false
@@ -294,10 +299,6 @@ private struct MainAppView: View {
     @EnvironmentObject private var waterLog: WaterLogModel
     @Binding var onboardingCompleted: Bool
 
-    private let adVerticalSpacing: CGFloat = 2
-    private let adReservedHeight: CGFloat = 10
-    private let tabBarContentHeight: CGFloat = 49
-
     var body: some View {
         TabView {
             TodayScreen()
@@ -320,19 +321,6 @@ private struct MainAppView: View {
                     Label("Settings", systemImage: "gearshape.fill")
                 }
         }
-        .safeAreaInset(edge: .bottom, spacing: 0) {
-            Color.clear.frame(height: adReservedHeight + adVerticalSpacing)
-        }
-        .overlay(alignment: .bottom) {
-            GeometryReader { proxy in
-                GlobalAdBanner()
-                    .frame(height: adReservedHeight)
-                    .padding(.horizontal, 10)
-                    .padding(.bottom, proxy.safeAreaInsets.bottom + tabBarContentHeight + adVerticalSpacing)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-            }
-            .allowsHitTesting(false)
-        }
     }
 }
 
@@ -354,6 +342,7 @@ private struct TodayScreen: View {
                 .padding(.bottom, 20)
             }
             .background(Color.sipBackground)
+            .adBannerInset()
             .navigationTitle("Today")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -474,16 +463,37 @@ private struct TodayScreen: View {
         }
         .buttonStyle(.plain)
         .alert("Custom Water Intake", isPresented: $isShowingCustomAmountAlert) {
-            TextField("Amount (ml)", text: $customAmountInput)
-                .keyboardType(.numberPad)
+            TextField(customAmountPlaceholder, text: $customAmountInput)
+                .keyboardType(.decimalPad)
             Button("Cancel", role: .cancel) {}
             Button("Confirm") {
-                if let amount = Int(customAmountInput), amount > 0 {
+                if let amount = parsedCustomAmountML(), amount > 0 {
                     waterLog.addWater(amount)
                 }
             }
         } message: {
-            Text("Enter how much water you drank.")
+            Text("Enter how much water you drank in your current unit.")
+        }
+    }
+
+    private var customAmountPlaceholder: String {
+        switch waterLog.unit {
+        case .ml:
+            return "Amount (ml)"
+        case .oz:
+            return "Amount (oz)"
+        }
+    }
+
+    private func parsedCustomAmountML() -> Int? {
+        let normalized = customAmountInput.replacingOccurrences(of: ",", with: ".")
+        switch waterLog.unit {
+        case .ml:
+            guard let amount = Int(normalized) else { return nil }
+            return amount
+        case .oz:
+            guard let amount = Double(normalized) else { return nil }
+            return waterLog.unit.convertToML(amount)
         }
     }
 
@@ -557,6 +567,7 @@ private struct HistoryScreen: View {
                 .padding(.bottom, 20)
             }
             .background(Color.sipBackground)
+            .adBannerInset()
             .navigationTitle("History")
         }
     }
@@ -656,44 +667,20 @@ private struct HistoryScreen: View {
 
 }
 
+private extension View {
+    func adBannerInset() -> some View {
+        safeAreaInset(edge: .bottom, spacing: 0) {
+            GlobalAdBanner()
+        }
+    }
+}
+
 private struct GlobalAdBanner: View {
     var body: some View {
-        HStack(spacing: 12) {
-            RoundedRectangle(cornerRadius: 10)
-                .fill(.white.opacity(0.22))
-                .frame(width: 42, height: 42)
-                .overlay {
-                    Image(systemName: "megaphone.fill")
-                        .foregroundStyle(.white)
-                        .font(.subheadline)
-                }
-
-            VStack(alignment: .leading, spacing: 2) {
-                Text("Google Ad Placeholder")
-                    .font(.subheadline.bold())
-                    .foregroundStyle(.white)
-                Text("Fixed above tab bar on all pages")
-                    .font(.caption)
-                    .foregroundStyle(.white.opacity(0.9))
-            }
-
-            Spacer()
-
-            Text("AD")
-                .font(.caption2.weight(.black))
-                .padding(.horizontal, 8)
-                .padding(.vertical, 5)
-                .background(.white.opacity(0.2))
-                .clipShape(Capsule())
-                .foregroundStyle(.white)
-        }
-        .padding(12)
-        .background(Color.sipAdOrange)
-        .clipShape(RoundedRectangle(cornerRadius: 14))
-        .overlay {
-            RoundedRectangle(cornerRadius: 14)
-                .stroke(Color.white.opacity(0.25), lineWidth: 1)
-        }
+        AdMobBannerView()
+            .frame(height: LayoutMetrics.adBannerHeight)
+            .padding(.horizontal, LayoutMetrics.adBannerHorizontalPadding)
+            .background(Color.sipBackground)
     }
 }
 
@@ -708,6 +695,7 @@ private struct RemindersScreen: View {
     @State private var isSaving = false
     @State private var saveMessage = ""
     @State private var isShowingSaveMessage = false
+    @State private var hasLoadedInitialState = false
 
     private let calendar = Calendar.current
 
@@ -733,6 +721,7 @@ private struct RemindersScreen: View {
                 .padding(.bottom, 20)
             }
             .background(Color.sipBackground)
+            .adBannerInset()
             .navigationTitle("Reminders")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -765,11 +754,7 @@ private struct RemindersScreen: View {
                 }
             }
             .task {
-                remindersEnabled = waterLog.remindersEnabled
-                wakeUpTime = dateFromMinutes(waterLog.reminderWakeMinutes)
-                bedTime = dateFromMinutes(waterLog.reminderBedMinutes)
-                selectedFrequency = waterLog.reminderFrequency
-                smartMinutes = waterLog.reminderSmartMinutes
+                loadInitialStateIfNeeded()
             }
             .alert("Reminders", isPresented: $isShowingSaveMessage) {
                 Button("OK", role: .cancel) {}
@@ -984,6 +969,16 @@ private struct RemindersScreen: View {
         formatter.dateFormat = "h:mm a"
         return formatter.string(from: date)
     }
+
+    private func loadInitialStateIfNeeded() {
+        guard !hasLoadedInitialState else { return }
+        remindersEnabled = waterLog.remindersEnabled
+        wakeUpTime = dateFromMinutes(waterLog.reminderWakeMinutes)
+        bedTime = dateFromMinutes(waterLog.reminderBedMinutes)
+        selectedFrequency = waterLog.reminderFrequency
+        smartMinutes = waterLog.reminderSmartMinutes
+        hasLoadedInitialState = true
+    }
 }
 
 private struct SettingsScreen: View {
@@ -1006,6 +1001,7 @@ private struct SettingsScreen: View {
                 .padding(.bottom, 20)
             }
             .background(Color.sipBackground)
+            .adBannerInset()
             .navigationTitle("Settings")
             .onAppear {
                 draftGoalML = waterLog.dailyGoalML
